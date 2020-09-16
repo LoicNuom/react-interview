@@ -2,6 +2,8 @@
 
 **This Project is for you to demonstrate your capacity to create a small webapp. Make sure to read the instructions _all the way through_ before starting.**
 
+[Read these instructions more easily on gihub](https://github.com/LoicNuom/react-interview/blob/master/README.md)
+
 ### How to use this platform
 We are using **Stackblitz** which is an online in browser IDE. [learn more](https://www.youtube.com/watch?v=_5VNrYFUv1U).
 
