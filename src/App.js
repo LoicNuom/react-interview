@@ -1,30 +1,25 @@
-import React from "react";
+import React from "react"
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-} from "react-router-dom";
-import cx from 'classnames'
-import {Home, Article} from "Pages"
+} from "react-router-dom"
+import {Home, Article} from "./Pages"
 
-import "./style.css";
+import "./style.css"
+import "bulma/bulma.min.css"
 
 export default function App() {
   return (
     <Router>
-      <div className={cx("container")}>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/article/:id">
-            <Users />
+            <Article />
           </Route>
           <Route path="/">
             <Home />
           </Route>
         </Switch>
-      </div>
     </Router>
   );
 }
