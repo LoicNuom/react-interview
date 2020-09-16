@@ -14,7 +14,7 @@ class Filter extends React.Component {
 Filter.propTypes = {
   tagList: PropTypes.arrayOf(PropTypes.string),
   selectedTags: PropTypes.arrayOf(PropTypes.string),
-  onChange: Proptypes.func
+  onChange: PropTypes.func
 };
 
 export default Filter

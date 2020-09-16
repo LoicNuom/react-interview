@@ -8,7 +8,6 @@ import Home from "./Pages/Home"
 import Article from "./Pages/Article"
 
 import "./style.css"
-import "bulma/bulma.min.css"
 
 export default function App() {
   return (
