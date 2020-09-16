@@ -1,6 +1,6 @@
 import app from 'firebase/app';
 
-const config = {
+export const config = {
   apiKey: 'AIzaSyBnTbbOhrM3faUi24kiaSOgU5ZKEgw7bhA',
   authDomain: "interviewbucket.firebaseapp.com",
   databaseURL: "https://interviewbucket.firebaseio.com",
@@ -13,7 +13,7 @@ const config = {
 class Firebase {
   constructor() {
     app.initializeApp(config);
-    this.db = app.firestore()
+    this.db = app.database()
   }
 }
 

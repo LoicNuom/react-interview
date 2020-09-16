@@ -1,9 +1,17 @@
-import database from "./database"
+//import database from "./database"
+import {config} from "./database"
+import firebase from "firebase";
 
-const db = database.getInstance().db
 
-async function getAllTags(){
-  const tags = await db.get('tags')
+const firebaseApp = firebase.initializeApp(config);
+const db = firebaseApp.firestore();
+
+export async function getAllTags(){
+  const tags = await db.collection('tags').get().then(querySnapshot => {
+  const data = querySnapshot.docs.map(doc => doc.data());
+  return data
+})
 
   return tags
 }
+

@@ -4,6 +4,8 @@ import cx from 'classnames'
 import Filter from "../Components/Filter/Filter"
 import ArticleCard from "../Components/ArticleCard/ArticleCard"
 
+import {getAllTags} from '../../mockAPI/allTags'
+
 class Home extends React.Component {
   state = {
     tagList: [],
@@ -11,8 +13,11 @@ class Home extends React.Component {
   }
 
   componentDidMount(){
-    /* TODO: get list of Tags from API */
-
+    getAllTags().then(tags=>{
+      const tagsNames = tags.maps(tag=>tag.name)
+      console.log(tagsNames)
+      this.setState({tagList:[...tagsNames]})
+    })
 
 
     /*TODO: get list of Articles from Database */
@@ -23,6 +28,7 @@ class Home extends React.Component {
   }
 
   render() {
+    console.log(this.state.tagList)
     return (
       <div className={cx("container")}>
         <section className={cx("section")}>
