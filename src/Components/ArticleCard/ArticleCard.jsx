@@ -16,7 +16,7 @@ class ArticleCard extends React.Component {
         <div className={cx('card-content')}>
           <div className={cx('media')}>
             <div className={cx('media-left')}>
-              <figure className={cx('image')}>
+              <figure className={cx('image', 'is-128x128')}>
                 {/* TODO:  show the image*/}
                 <img src={'ImageUrl'} alt="Image Description" />
               </figure>

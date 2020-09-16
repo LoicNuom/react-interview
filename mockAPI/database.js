@@ -1,4 +1,5 @@
-import app from 'firebase/app';
+import firebase from "firebase";
+
 
 export const config = {
   apiKey: 'AIzaSyBnTbbOhrM3faUi24kiaSOgU5ZKEgw7bhA',
@@ -12,8 +13,8 @@ export const config = {
 
 class Firebase {
   constructor() {
-    app.initializeApp(config);
-    this.db = app.database()
+    const firebaseApp = firebase.initializeApp(config);
+    this.db = firebaseApp.firestore();
   }
 }
 

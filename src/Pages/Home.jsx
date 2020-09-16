@@ -14,21 +14,22 @@ class Home extends React.Component {
 
   componentDidMount(){
     getAllTags().then(tags=>{
-      const tagsNames = tags.maps(tag=>tag.name)
-      console.log(tagsNames)
-      this.setState({tagList:[...tagsNames]})
+      this.setState({tagList:[...tags]})
     })
 
 
     /*TODO: get list of Articles from Database */
+
   }
   
   handleFilterChange(){
-    /* TODO: Show only the articles with the selected tags */
+    /* TODO: update the selected tag list */
+
   }
 
+  /* TODO: update the list of Articles when */
+
   render() {
-    console.log(this.state.tagList)
     return (
       <div className={cx("container")}>
         <section className={cx("section")}>

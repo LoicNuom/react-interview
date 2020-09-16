@@ -1,16 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import Tag from './Tag'
 
 class TitleSection extends React.Component {
   render() {
     return (
       <div className={cx('card')}>
-        <h1 className={cx('title')}>
-
-        </h1>
+        <p className={cx('title')}>
+            Title
+        </p>
         <p className={cx('columns', 'is-multiline')}>
-          //TODO: Show tags
+          {
+            /* TODO:  Show the list of tags*/
+          }
         </p>
       </div>
     );

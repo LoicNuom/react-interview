@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Select from 'react-select'
-
+import {capitalize} from 'lodash'
 
 
 class Filter extends React.Component {
   render() {
+    const options = this.props.tagList.map(tag=>({ value: tag, label: capitalize(tag)}))
     return (
-      <Select name='tagFilter' value={this.props.selectedTags} options={this.props.tagList} onChange={this.props.onChange} multi autoBlur />
+      <Select name='tagFilter' value={this.props.selectedTags} options={options} onChange={this.props.onChange} multi autoBlur />
     );
   }
 }
