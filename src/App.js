@@ -4,7 +4,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom"
-import {Home, Article} from "./Pages"
+import Home from "./Pages/Home"
+import Article from "./Pages/Article"
 
 import "./style.css"
 import "bulma/bulma.min.css"

@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {Filter, ArticleCard} from "../Components"
+import Filter from "../Components/Filter/Filter"
+import ArticleCard from "../Components/ArticleCard/ArticleCard"
 
 class Home extends React.Component {
   state = {
@@ -11,6 +12,7 @@ class Home extends React.Component {
 
   componentDidMount(){
     /* TODO: get list of Tags from API */
+
 
 
     /*TODO: get list of Articles from Database */

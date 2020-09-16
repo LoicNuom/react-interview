@@ -7,7 +7,7 @@ import TitleSection from './TitleSection'
 class ArticleCard extends React.Component {
 
   handleClick(){
-    /* TODO: Go to the article page on click*/
+    /* TODO: Go to the article page on click, you should use React Router*/
   }
 
   render() {
