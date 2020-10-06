@@ -7,7 +7,7 @@ import TitleSection from './TitleSection'
 class ArticleCard extends React.Component {
 
   handleClick(){
-    /* TODO: Go to the article page on click, you should use React Router*/
+    /* TODO: Go to the article page on click, you should use React Router */
   }
 
   render() {
@@ -18,17 +18,17 @@ class ArticleCard extends React.Component {
             <div className={cx('media-left')}>
               <figure className={cx('image', 'is-128x128')}>
                 {/* TODO:  show the image*/}
-                <img src={'ImageUrl'} alt="Image Description" />
+                <img src={this.props.image} alt="Image Description" />
               </figure>
             </div>
             <div className={cx('media-content')}>
               {/* TODO: pass the article details (title and tags)*/}
-              <TitleSection title={'Article Title'} tags={[]}/>
+              <TitleSection title={this.props.title} tags={this.props.tags}/>
             </div>
           </div>
           <div className={cx('content')}>
             {/*TODO: Pass the article text and the max length. Max length can be taken from a config or to be respond to size*/}
-            <Summary text={'Article text'} maxLength={150}/>
+            <Summary text={this.props.summary} maxLength={150}/>
           </div>
         </div>
       </div>

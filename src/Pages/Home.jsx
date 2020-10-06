@@ -4,12 +4,15 @@ import cx from 'classnames'
 import Filter from "../Components/Filter/Filter"
 import ArticleCard from "../Components/ArticleCard/ArticleCard"
 
-import {getAllTags} from '../../mockAPI/allTags'
+import {getAllTags} from '../mockAPI/allTags'
+import {getAllArticles} from '../mockAPI/allArticles'
 
 class Home extends React.Component {
   state = {
     tagList: [],
-    selectedTags:[]
+    selectedTags:[],
+    articleList:[],
+    articles:[]
   }
 
   componentDidMount(){
@@ -17,8 +20,10 @@ class Home extends React.Component {
       this.setState({tagList:[...tags]})
     })
 
-
     /*TODO: get list of Articles from Database */
+    getAllArticles().then(articles=>{
+      this.setState({articleList:articles})
+    })
 
   }
   
@@ -46,21 +51,22 @@ class Home extends React.Component {
           <Filter onChange={this.handleFilterChange} tagList={this.state.tagList} selectedTags={this.state.selectedTags}/>
         </section>
         <section className={cx("columns","section")}>
-          {
-            /*TODO: Create a list of the cards, the list has to be reactive */
             <div className={cx("column")}>
-              <ArticleCard />
+              
+                {
+                  this.state.articleList.map((article, index) => 
+                    <ArticleCard summary={article.text} title={article.title} image={article.image} key={index} tags={article.tags}  />
+                  )
+                }
             </div>
-          }
         </section>
-        
       </div>
     );
   }
 }
 
 Home.propTypes = {
-  
+
 };
 
 export default Home
