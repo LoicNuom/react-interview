@@ -1,22 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
+import React from "react";
+import PropTypes from "prop-types";
+import { capitalize } from "lodash";
+import "../../Styles/article-tag.css";
 
-
-/* TODO: need styling as you please*/
-
-class Tag extends React.Component {
-  render() {
-    return (
-      <span className={cx('column')}>
-        {this.props.tag}
-      </span>
-    );
-  }
-}
-
-Tag.propTypes = {
-  tag: PropTypes.string,
+const Tag = props => {
+  const { tag } = props;
+  return (
+    <div className="article-tag" value={tag}>
+      {capitalize(tag)}
+    </div>
+  );
 };
 
-export default Tag
+Tag.propTypes = {
+  tag: PropTypes.string
+};
+
+export default Tag;
