@@ -1,28 +1,36 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
-import Tag from './Tag'
+import React from "react";
+import PropTypes from "prop-types";
+import Tag from "./Tag";
 
-class TitleSection extends React.Component {
-  render() {
-    return (
-      <div className={cx('card')}>
-        <p className={cx('title')}>
-            Title
-        </p>
-        <p className={cx('columns', 'is-multiline')}>
-          {
-            /* TODO:  Show the list of tags*/
-          }
-        </p>
+// Import styles
+import "../../Styles/underline-hover.css";
+import "../../Styles/is-clickable.css";
+import "../../Styles/tag-container.css";
+
+const TitleSection = props => {
+  const { title, tags, handleArticleClick } = props;
+
+  return (
+    <>
+      <a
+        className="title is-4 underline-hover is-clickable"
+        onClick={handleArticleClick}
+      >
+        {title}
+      </a>
+      <div className="tag-container">
+        {tags.map(tag => {
+          return <Tag tag={tag} key={`${tag}-tag`} />;
+        })}
       </div>
-    );
-  }
-}
+    </>
+  );
+};
 
 TitleSection.propTypes = {
   title: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.string)
+  tags: PropTypes.arrayOf(PropTypes.string),
+  handleArticleClick: PropTypes.func
 };
 
-export default TitleSection
+export default TitleSection;

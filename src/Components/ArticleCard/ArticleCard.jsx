@@ -1,47 +1,51 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
-import Summary from './Summary'
-import TitleSection from './TitleSection'
+import React from "react";
+import PropTypes from "prop-types";
+import Summary from "./Summary";
+import TitleSection from "./TitleSection";
+import { useHistory } from "react-router-dom";
+import calculateMaxLength from "../../Helpers/calculateMaxSummaryLength";
 
-class ArticleCard extends React.Component {
+const ArticleCard = props => {
+  const { id, title, tags, summary, image, windowWidth } = props;
 
-  handleClick(){
-    /* TODO: Go to the article page on click, you should use React Router*/
-  }
+  // Manage the routing with react-router to redirect to the article page.
+  const history = useHistory();
+  const handleArticleClick = () => {
+    history.push(`/article/${id}`);
+  };
 
-  render() {
-    return (
-      <div className={cx('card')} onClick={this.handleClick}>
-        <div className={cx('card-content')}>
-          <div className={cx('media')}>
-            <div className={cx('media-left')}>
-              <figure className={cx('image', 'is-128x128')}>
-                {/* TODO:  show the image*/}
-                <img src={'ImageUrl'} alt="Image Description" />
-              </figure>
-            </div>
-            <div className={cx('media-content')}>
-              {/* TODO: pass the article details (title and tags)*/}
-              <TitleSection title={'Article Title'} tags={[]}/>
-            </div>
+  return (
+    <div className="card" style={{ height: "100%" }}>
+      <div className="card-content">
+        <div className="media">
+          <div className="media-left">
+            <figure className="image is-128x128">
+              <img src={image} alt={title} />
+            </figure>
           </div>
-          <div className={cx('content')}>
-            {/*TODO: Pass the article text and the max length. Max length can be taken from a config or to be respond to size*/}
-            <Summary text={'Article text'} maxLength={150}/>
+          <div className="media-content">
+            <TitleSection
+              title={title}
+              tags={tags}
+              handleArticleClick={handleArticleClick}
+            />
           </div>
         </div>
+        <div className="content">
+          <Summary text={summary} maxLength={calculateMaxLength(windowWidth)} />
+        </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 ArticleCard.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   summary: PropTypes.string,
-  image: PropTypes.string
+  image: PropTypes.string,
+  windowWidth: PropTypes.number
 };
 
-export default ArticleCard
+export default ArticleCard;
